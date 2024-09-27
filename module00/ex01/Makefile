@@ -1,5 +1,5 @@
-CXX=g++
-CXXFLAGS= -Wall -Werror -Wextra -std=c++98
+CPP=c++
+CPPFLAGS= -Wall -Werror -Wextra -std=c++98
 NAME=crappy
 RM=rm -f
 
@@ -9,10 +9,10 @@ OBJ = $(SRC:.cpp=.o)
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
 %.o:%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)

@@ -3,24 +3,24 @@
 
 void Contact :: setfirstname(string str)
 {
-    first_name =str;
+    first_name = str;
 }
 
 void Contact :: setlastname(string str)
 {
-    last_name =str;
+    last_name = str;
 }
 void Contact :: setnickname(string str)
 {
-    nickname =str;
+    nickname = str;
 }
 void Contact :: setphonenbr(string str)
 {
-    phone_nbr =str;
+    phone_nbr = str;
 }
 void Contact :: setderkest(string str)
 {
-    derkset =str;
+    derkset = str;
 }
 
 
