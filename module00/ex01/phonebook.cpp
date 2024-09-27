@@ -75,17 +75,17 @@ void PhoneBook :: ft_add_contact(void)
 int    check_valid_index(string input,int cont)
 {
     int n;
-    if(input[1]=='\0'|| input[0]>(cont + 48))
-        return (1);
+    if(input[1]!='\0'|| input[0]>(cont + 48))
+        return (-1);
     n = input[0] - 48;
     return (n);
 }
 
 void    ft_head_contact_tab()
 {
-    cout <<"\t\t-----------------------------------------------"<<endl;
-    cout <<"\t\t|  index  | first name | last name | nickname |"<<endl;
-    cout <<"\t\t-----------------------------------------------"<<endl;
+    cout <<"\t\t--------------------------------------------------"<<endl;
+    cout <<"\t\t|  index  | first name | last name  | nickname   |"<<endl;
+    cout <<"\t\t--------------------------------------------------"<<endl;
 }
 void PhoneBook :: ft_search_contact(void)
 {
@@ -99,17 +99,64 @@ void PhoneBook :: ft_search_contact(void)
     }
     string input;
     int n;
-    cout << "Enter your index: ";
+    cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
     getline(cin,input);
     n = check_valid_index(input,cont);
+    if(n==-1)
+        return ;
     ft_data_contact(tab[n]);
 }
 
+void    check_len_str(string str)
+{
+    if(str.length()>10)
+        cout<< str.substr(0, 10)<<".";
+    else
+        cout<<str;
+}
 void  PhoneBook ::ft_wrcontact(Contact c,int i)
 {
-    cout <<"\t\t|  "<< i <<"   |   " <<c.getfirstname();
-    cout<<"  |   "<< c.getlastname();
-    cout<<"   |   "<<c.getnickname()<<"     |"<<endl;
+    cout <<"\t\t|    "<< i <<"    | ";
+    check_len_str(c.getfirstname());
+    if (c.getfirstname().length()>10)
+        cout<<"| ";
+    else
+    {
+        int i = c.getfirstname().length();
+        while (i<11)
+        {cout<<" ";
+            i++;
+        }
+        cout<<"| ";
+    }
+    check_len_str(c.getlastname());
+    if (c.getlastname().length()>10)
+        cout<<"| ";
+    else
+    {
+        int i = c.getlastname().length();
+        while (i<11)
+        {
+            cout<<" ";
+            i++;
+        }
+        cout<<"| ";
+    }
+    check_len_str(c.getnickname());
+    if (c.getnickname().length()>10)
+        cout<<"| ";
+    else
+    {
+        int i = c.getnickname().length();
+        while (i<11)
+        {
+            cout<<" ";
+            i++;
+        }
+        cout<<"|";
+
+    }
+    cout<<endl;
 }
 void  PhoneBook ::ft_data_contact(Contact c)
 {
