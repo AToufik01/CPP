@@ -10,6 +10,7 @@ class PhoneBook
         int cont;
         Contact tab[8];
     public:
+        int n;
         void    ft_add_contact(void);
         void    ft_search_contact(void);
         void    ft_wrcontact(Contact c, int i);

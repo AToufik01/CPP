@@ -63,7 +63,15 @@ void PhoneBook :: ft_add_contact(void)
     new_contat.setphonenbr(valid_input("phone number: ",2));
     new_contat.setderkest(valid_input("derkest : ",1));
 
-    if(cont<8) //intstalize cont cout ==1;
+    cout <<"------"<<cont<<endl;
+    if(cont>=8)
+    {
+        tab[n] = new_contat;
+        n++;
+        if(n == 8)
+            n = 0;
+    }
+    if(cont<8)
     {
         cont++;
         tab[cont - 1] = new_contat;
@@ -75,7 +83,7 @@ void PhoneBook :: ft_add_contact(void)
 int    check_valid_index(string input,int cont)
 {
     int n;
-    if(input[1]!='\0'|| input[0]>(cont + 48))
+    if(input[1]!='\0'|| input[0]>((cont - 1) + 48))
         return (-1);
     n = input[0] - 48;
     return (n);

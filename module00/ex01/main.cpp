@@ -4,6 +4,7 @@ int main()
 {
     PhoneBook ph_book;
     string input;
+    ph_book.n = 0;
     while (1)
     {
         cout << "entre input : ";
