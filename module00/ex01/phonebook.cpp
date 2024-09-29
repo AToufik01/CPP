@@ -8,7 +8,7 @@ int check_input(string input)
         return (1);
     while (input[i])
     {
-        if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z'))
+        if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z')||input[i] == ' ')
             i++;
         else
             return (1);
@@ -110,8 +110,12 @@ void PhoneBook :: ft_search_contact(void)
     cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
     getline(cin,input);
     n = check_valid_index(input,cont);
-    if(n==-1)
-        return ;
+    while(n == -1)
+    {
+        cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
+        getline(cin,input);
+        n = check_valid_index(input,cont);
+    }
     ft_data_contact(tab[n]);
 }
 

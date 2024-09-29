@@ -8,7 +8,8 @@ int main()
     while (1)
     {
         cout << "entre input : ";
-        getline(cin,input);
+        if(!getline(cin,input))
+            break;
         if (input == "ADD")
             ph_book.ft_add_contact();
         else if (input == "SEARCH")
@@ -16,8 +17,5 @@ int main()
         else if  (input=="EXIT")
             break;
     }
-
-    cout<<"haaaaa nta gadi";
-    
     return 0;
 }
