@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 17:42:29 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/02 17:42:29 by ataoufik         ###   ########.fr       */
+/*   Created: 2024/10/02 16:41:52 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/02 16:50:32 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <iostream>
-class Zombie
+#include "Harl.hpp"
+
+
+int main(int arc, char const *arv[])
 {
-private:
-    std::string name;
-
-public:
-    Zombie(std::string name);
-    Zombie(void);
-    ~Zombie(void);
-    void announce(void);
-    void setname(std::string name);
-};
-
-Zombie *zombieHorde(int N, std::string name);
-
-#endif
+    if (arc!=2)
+        std::cout << "lslslsl"<<std::endl;
+    else
+    {
+        Harl k;
+        k.complain(arv[1]);
+    }
+    return 0;
+}
