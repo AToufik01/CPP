@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 18:19:31 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/03 18:23:28 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:16:04 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ Point :: Point(const float x,const float y) :_x(x),_y(y)
 
 }
 
-Point :: Point(const Point &copy)
+Point :: Point(const Point &copy): _x(copy._x), _y(copy._y)
 {
-    *this = copy;
+    // *this = copy;
 }
 
-Point& Point::operator=(const Point &other)
-{
-    if(this != &other)
-    {
-        this->_x = other._x;
-        this->_y = other._y;
-    }
-    return (*this);
-}
+// Point& Point::operator=(const Point &other);
+// {
+//     if(this != &other)
+//     {
+//         this->_x = other._x;
+//         this->_y = other._y;
+//     }
+//     return (*this);
+// }
 
 Point :: ~Point()
 {
