@@ -5,28 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 18:16:36 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/05 22:27:52 by ataoufik         ###   ########.fr       */
+/*   Created: 2024/10/05 21:41:55 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/05 22:28:03 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ScavTrap scav("Mohamed");
-    std::cout << "Initial state:\n";
-    std::cout << "\nSimulating attacks:\n";
-    scav.guardGate();
-    for (int i = 0; i < 10; i++)
-        scav.attack("clone");
-    std::cout << "\nSimulating taking damage:\n";
-    scav.takeDamage(50);
-    scav.guardGate();
-    std::cout << "\nSimulating repair:\n";
-    scav.beRepaired(40); 
-    std::cout << "\nSimulating more attacks after repair:\n";
-    for (int i = 0; i < 9; i++)
-        scav.attack("clone");
+    FragTrap frag1("hasan");
+
+    frag1.attack("clone");
+    frag1.takeDamage(30);
+    frag1.beRepaired(20);
+    frag1.highFivesGuys();
+
     return 0;
 }

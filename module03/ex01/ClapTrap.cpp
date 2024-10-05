@@ -6,19 +6,20 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:50:19 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/05 20:53:13 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/05 21:44:11 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap :: ClapTrap()
+ClapTrap :: ClapTrap() :_Name("unknown"), _HitPoints(10),_EnergyPoints(10),_AttackDamage(0)
 {
     std::cout << "ClapTrap : Default Constructor called" << std::endl;
 }
 
-ClapTrap :: ClapTrap(std::string name) :_Name(name), _HitPoints(10),_EnergyPoints(10),_AttackDamage(0)
+ClapTrap :: ClapTrap(std::string name)
 {
+    this->_Name = name;
     std::cout << "ClapTrap : Constructor for the name "<<this->_Name<<" called" << std::endl;
 
 }
