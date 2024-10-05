@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.cpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 18:19:31 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/05 20:46:46 by ataoufik         ###   ########.fr       */
+/*   Created: 2024/10/05 16:19:11 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/05 20:47:44 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
+#include "ClapTrap.hpp"
 
 
-Point ::Point():_x(0),_y(0)
+class ScavTrap : public ClapTrap
 {
-    
-}
+    public:
+        ScavTrap(std::string name);
+        ~ScavTrap();
+        void guardGate();
+        void attack(const std::string& target);
 
-Point :: Point(const float x,const float y) :_x(x),_y(y)
-{
+};
 
-}
 
-Point :: Point(const Point &copy): _x(copy._x), _y(copy._y)
-{
-    
-}
-
-Point :: ~Point()
-{
-
-}
+#endif
