@@ -10,7 +10,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
-%.o:%.cpp AAnimal.hpp Cat.hpp Dog.hpp Brain.hpp
+%.o:%.cpp 
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

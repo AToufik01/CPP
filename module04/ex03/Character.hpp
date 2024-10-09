@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:26:24 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 16:09:23 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:31:43 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Character : public ICharacter
         Character(std::string type);
         ~Character();
         std::string const & getName() const;
-        void equip(AMateria* m)override;
+        void equip(AMateria* m);
         void unequip(int idx) ;
         void use(int idx, ICharacter& target) ;
 };

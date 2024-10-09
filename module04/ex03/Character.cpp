@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:26:40 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 15:43:56 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:29:14 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Character :: Character()
 
 Character :: Character(std::string type):name(type)
 {
-
+    std::cout << "Character of type " << name << " has been created." << std::endl;
 }
 Character :: ~Character()
 {
@@ -30,7 +30,7 @@ Character :: ~Character()
 void Character :: equip(AMateria* m)
 {
     if (m == nullptr)
-        return; // Prevent null Materia from being equipped
+        return;
     for (int i = 0; i < 4; i++)
     {
         if (inventory[i] == nullptr)
@@ -40,7 +40,6 @@ void Character :: equip(AMateria* m)
             return;
         }
     }
-    // Inventory is full
     std::cout << "Inventory is full! Cannot equip more Materias." << std::endl;
 }
 

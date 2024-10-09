@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:30:20 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 14:08:52 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:36:10 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ std::string const & AMateria ::getType() const
 
 void AMateria :: use(ICharacter& target)
 {
-
+    (void)target;
     
 }

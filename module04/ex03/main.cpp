@@ -6,13 +6,15 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:00:13 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 16:05:11 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:24:45 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp" 
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "IMateriaSource.hpp"
 
 int main()

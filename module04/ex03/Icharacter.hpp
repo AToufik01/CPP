@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:16:27 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 15:23:48 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:35:30 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 #include "AMateria.hpp"
-
+class AMateria;
 class ICharacter
 {
     public:
