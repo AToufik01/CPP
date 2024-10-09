@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:00:32 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/10/09 12:18:07 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:17:16 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class AMateria
 {
     protected:
-        //few
+       std::string _type;
     public:
         AMateria();
         ~AMateria();
