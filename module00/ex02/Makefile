@@ -1,9 +1,9 @@
-CPP= c++
+NAME=lost_file
+CPP=c++
 CPPFLAGS= -Wall -Werror -Wextra -std=c++98
-NAME=test
 RM=rm -f
 
-SRC= tests.cpp Account.cpp
+SRC=tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all:$(NAME)
@@ -11,7 +11,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
-%.o:%.cpp Account.hpp
+%.o:%.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

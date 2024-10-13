@@ -1,6 +1,18 @@
-#include"PhoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/13 18:31:02 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/13 20:18:29 by ataoufik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int check_input(string input)
+#include "PhoneBook.hpp"
+
+int check_input(std::string input)
 {
     int i;
     i = 0;
@@ -16,7 +28,7 @@ int check_input(string input)
     return (0);
 }
 
-int check_input_nbr(string input)
+int check_input_nbr(std::string input)
 {
     int i;
     i = 0;
@@ -29,58 +41,99 @@ int check_input_nbr(string input)
     }
     return (0);
 }
-string valid_input(string str,int i)
+void PhoneBook:: set_n(int i)
 {
-    string input;
-    cout << str;
-    getline(cin,input);
+    this->_n = i;
+    this->cont = i;
+}
+
+std::string valid_input(std::string str,int i)
+{
+    std::string input;
+    std::cout << str;
+    getline(std::cin,input);
     if (i == 1)
         return(input);
     else if (i == 2)
     {
         while (check_input_nbr(input) == 1)
         {
-            cout<<"Error\n";
-            cout<<str;
-            getline(cin,input);
+            std::cout<<"Error\n";
+            std::cout<<str;
+            getline(std::cin,input);
         }
         return(input);
     }
     while (check_input(input) == 1)
     {
-        cout<<"Error\n";
-        cout<< str;
-        getline(cin,input);
+        std::cout<<"Error\n";
+        std::cout<< str;
+        getline(std::cin,input);
     }
     return (input);
 }
-void PhoneBook :: ft_add_contact(void)
+void    ft_head_contact_tab()
 {
-    Contact new_contat;
-    new_contat.setfirstname(valid_input("first name: ",0));
-    new_contat.setlastname(valid_input("last name: ",0));
-    new_contat.setnickname(valid_input("nickname: ",1));
-    new_contat.setphonenbr(valid_input("phone number: ",2));
-    new_contat.setderkest(valid_input("derkest : ",1));
-
-    cout <<"------"<<cont<<endl;
-    if(cont>=8)
-    {
-        tab[n] = new_contat;
-        n++;
-        if(n == 8)
-            n = 0;
-    }
-    if(cont<8)
-    {
-        cont++;
-        tab[cont - 1] = new_contat;
-    }
-    cout << "Contact added successfully ✅" << endl;
-
-
+    std::cout <<"\t\t--------------------------------------------------"<<std::endl;
+    std::cout <<"\t\t|  index  | first name | last name  | nickname   |"<<std::endl;
+    std::cout <<"\t\t--------------------------------------------------"<<std::endl;
 }
-int    check_valid_index(string input,int cont)
+
+void PhoneBook:: ft_add_contact(void)
+{
+    Contact newContact;
+    
+    newContact.setfirstname(valid_input("first name: ",0));
+    newContact.setlastname(valid_input("last name: ",0));
+    newContact.setnickname(valid_input("nickname: ",1));
+    newContact.setphonenbr(valid_input("phone number: ",2));
+    newContact.setderkest(valid_input("derkest : ",1));
+    if(this->cont>=8)
+    {
+        this->tab[this->_n] = newContact;
+        this->_n++;
+        if(this->_n == 8)
+            this->_n = 0;
+    }
+    if(this->cont<8)
+    {
+        this->cont++;
+        this->tab[this->cont - 1] = newContact;
+    }
+    std::cout << "Contact added successfully " << std::endl;
+}
+
+void PhoneBook::    ft_search_contact(void)
+{
+    std::string input;
+    int n;
+    int i;
+    i = 0;
+    if(this->cont == 0)
+    {
+        std::cout<<"\033[1;31m" << "No contacts added to the phone book."<< "\033[0m" <<std::endl;
+        return ;
+    }
+    ft_head_contact_tab();
+    while(i < this->cont)
+    {
+        ft_wrcontact(this->tab[i],i);
+        i++;
+    }
+    std::cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
+    if(!getline(std::cin, input))
+        return ;
+    n = check_valid_index(input, cont);
+    while(n == -1)
+    {
+        std::cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
+        if(!getline(std::cin, input))
+            return ;
+        n = check_valid_index(input,cont);
+    }
+    ft_data_contact(tab[n]);
+}
+int    check_valid_index(std::string input,int cont)
 {
     int n;
     if(input[1]!='\0'|| input[0]>((cont - 1) + 48))
@@ -89,92 +142,33 @@ int    check_valid_index(string input,int cont)
     return (n);
 }
 
-void    ft_head_contact_tab()
-{
-    cout <<"\t\t--------------------------------------------------"<<endl;
-    cout <<"\t\t|  index  | first name | last name  | nickname   |"<<endl;
-    cout <<"\t\t--------------------------------------------------"<<endl;
-}
-void PhoneBook :: ft_search_contact(void)
-{
-    int i;
-    i = 0;
-    ft_head_contact_tab();
-    while (i<cont)
-    {
-        ft_wrcontact(tab[i],i);
-        i++;
-    }
-    string input;
-    int n;
-    cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
-    getline(cin,input);
-    n = check_valid_index(input,cont);
-    while(n == -1)
-    {
-        cout <<"\033[1;32m"<<"Enter your index: "<< "\033[0m";
-        getline(cin,input);
-        n = check_valid_index(input,cont);
-    }
-    ft_data_contact(tab[n]);
-}
 
-void    check_len_str(string str)
+void    check_len_str(std::string str)
 {
     if(str.length()>10)
-        cout<< str.substr(0, 10)<<".";
+        std::cout<< std::setw(10)<< str.substr(0, 10)<<".";
     else
-        cout<<str;
+        std::cout<< std::setw(11)<<str;
 }
+
+
 void  PhoneBook ::ft_wrcontact(Contact c,int i)
 {
-    cout <<"\t\t|    "<< i <<"    | ";
+    std::cout <<"\t\t|    "<< i <<"    | ";
     check_len_str(c.getfirstname());
-    if (c.getfirstname().length()>10)
-        cout<<"| ";
-    else
-    {
-        int i = c.getfirstname().length();
-        while (i<11)
-        {cout<<" ";
-            i++;
-        }
-        cout<<"| ";
-    }
+        std::cout<<"| ";
     check_len_str(c.getlastname());
-    if (c.getlastname().length()>10)
-        cout<<"| ";
-    else
-    {
-        int i = c.getlastname().length();
-        while (i<11)
-        {
-            cout<<" ";
-            i++;
-        }
-        cout<<"| ";
-    }
+        std::cout<<"| ";
     check_len_str(c.getnickname());
-    if (c.getnickname().length()>10)
-        cout<<"| ";
-    else
-    {
-        int i = c.getnickname().length();
-        while (i<11)
-        {
-            cout<<" ";
-            i++;
-        }
-        cout<<"|";
-
-    }
-    cout<<endl;
+        std::cout<<"| ";
+    std::cout<<std::endl;
 }
+
 void  PhoneBook ::ft_data_contact(Contact c)
 {
-    cout << "first name: "<<c.getfirstname()<<endl;
-    cout << "last name: "<< c.getlastname()<<endl;
-    cout << "nickname: "<< c.getnickname()<<endl;
-    cout << "phone number: "<< c.getphonenbr()<<endl;
-    cout << "derkest : "<< c.getderkest()<<endl;
+    std::cout << "first name: "<<c.getfirstname()<<std::endl;
+    std::cout << "last name: "<< c.getlastname()<<std::endl;
+    std::cout << "nickname: "<< c.getnickname()<<std::endl;
+    std::cout << "phone number: "<< c.getphonenbr()<<std::endl;
+    std::cout << "derkest : "<< c.getderkest()<<std::endl;
 }

@@ -1,9 +1,9 @@
+NAME=crappy
 CPP=c++
 CPPFLAGS= -Wall -Werror -Wextra -std=c++98
-NAME=crappy
 RM=rm -f
 
-SRC= phonebook.cpp main.cpp contact.cpp
+SRC= PhoneBook.cpp main.cpp Contact.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all:$(NAME)
@@ -11,7 +11,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
-%.o:%.cpp
+%.o:%.cpp Contact.hpp PhoneBook.hpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

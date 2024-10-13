@@ -1,6 +1,16 @@
-#include<iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/13 17:30:38 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/13 17:38:23 by ataoufik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-using namespace std;
+#include <iostream>
 
 void ft_uprcase(char **str, int count)
 {
@@ -11,23 +21,22 @@ void ft_uprcase(char **str, int count)
         while (str[i][j])
         {
             if (str[i][j] >= 'a' && str[i][j] <= 'z')
-                cout << char (str[i][j] - 32); 
+                std::cout << char (str[i][j] - 32);
             else
-                cout << str[i][j];
+               std:: cout << str[i][j];
             j++;
         }
         if (i < count - 1)
-            cout << ' ';
+           std:: cout << ' ';
         i++;
     }
-    cout << endl;
+    std:: cout << std::endl;
 }
-
 
 int main(int arc ,char *arv[])
 {
     if (arc == 1)
-        cout<< "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<endl;
+        std::cout<< "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;
     else
        ft_uprcase(arv, arc);
     return (0);

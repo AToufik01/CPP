@@ -1,14 +1,27 @@
-#include"PhoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/13 18:15:38 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/13 20:19:17 by ataoufik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
+
 
 int main()
 {
     PhoneBook ph_book;
-    string input;
-    ph_book.n = 0;
+    std::string input;
+    ph_book.set_n(0);
     while (1)
     {
-        cout << "entre input : ";
-        if(!getline(cin,input))
+        std:: cout << "entre input : ";
+        if(!getline(std::cin,input))
             break;
         if (input == "ADD")
             ph_book.ft_add_contact();
@@ -17,5 +30,5 @@ int main()
         else if  (input=="EXIT")
             break;
     }
-    return 0;
+    return(0);
 }

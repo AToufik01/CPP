@@ -1,47 +1,56 @@
-#include "PhoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/13 18:15:56 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/10/13 18:25:54 by ataoufik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "Contact.hpp"
 
-void Contact :: setfirstname(string str)
+void Contact:: setfirstname(std::string str)
 {
-    first_name = str;
+    this->_firstName = str;
+}
+void Contact:: setlastname(std::string str)
+{
+    this->_lastName=str;
+}
+void Contact:: setnickname(std::string str)
+{
+    this->_nickName=str;
+}
+void Contact:: setphonenbr(std::string str)
+{
+    this->_phoneNbr=str;
+}
+void Contact:: setderkest(std::string str)
+{
+    this->_deskest=str;
+}
+std::string Contact:: getfirstname(void)
+{
+    return (this->_firstName);
 }
 
-void Contact :: setlastname(string str)
+std::string Contact::getlastname(void)
 {
-    last_name = str;
+    return(this->_lastName);
 }
-void Contact :: setnickname(string str)
+std::string Contact::getnickname(void)
 {
-    nickname = str;
-}
-void Contact :: setphonenbr(string str)
-{
-    phone_nbr = str;
-}
-void Contact :: setderkest(string str)
-{
-    derkset = str;
+    return(this->_nickName);    
 }
 
-
-
-string Contact :: getfirstname(void)
+std::string Contact::getphonenbr(void)
 {
-    return(first_name);
+    return(this->_phoneNbr);
 }
-string Contact :: getlastname(void)
+std::string Contact::getderkest(void)
 {
-    return(last_name);
-}
-string Contact :: getnickname(void)
-{
-    return(nickname);
-}
-string Contact :: getphonenbr(void)
-{
-    return(phone_nbr);
-}
-string Contact :: getderkest(void)
-{
-    return(derkset);
+    return(this->_deskest);
 }
