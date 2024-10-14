@@ -1,6 +1,0 @@
-// " " just SPACE in first name etc...
-
-// `CRTL + D` IN PHONE BOOK FIELDS (FIRSTNAME LASTNAME ...) 
-// Each column must be 10 characters wide
-// ( WIDE COLUMNS ) If the text is longer than the column,
-// it must be truncated and the last displayable character must be replaced by a dot (’.’).
