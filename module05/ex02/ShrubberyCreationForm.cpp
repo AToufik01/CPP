@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:20:53 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/11/18 18:03:49 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:18:54 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void ShrubberyCreationForm:: execute(Bureaucrat const & executor) const
 {
     // if(!this->beSigned(executor))
     // {
-    //     std::cout <<"error"<<std::endl;
+    //     std::cout << "Form is not signed!" << std::endl;
     //     return;
     // }
     if (executor.getGrade() > this->getGradeExecute())
     {
-        // std::cout <<"error"<<std::endl;
+        std::cout << "Error: Executor's grade is too low!" << std::endl;
         // throw GradeTooLowException();
         return;
     }

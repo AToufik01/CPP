@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:31:37 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/11/18 17:12:13 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:23:19 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     (void)executor;
+    if (executor.getGrade() > this->getGradeExecute())
+    {
+        std::cout <<"the robotomy failed."<<std::endl;
+        return ;
+    }
+    std::cout << this->getName() <<" has been robotomized successfully 50%' of the time"<<std::endl;
 }
