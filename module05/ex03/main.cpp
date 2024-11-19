@@ -6,7 +6,7 @@
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:19:06 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/11/19 08:39:09 by ataoufik         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:27:35 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    Bureaucrat buro("hasan",4);
-    ShrubberyCreationForm d("home");
-    RobotomyRequestForm f("ayoub");
-    PresidentialPardonForm e("fr");
-    e.beSigned(buro);
-    buro.executeForm(e);
-    // f.execute(buro);
-    // d.execute(buro);
-    // std::cout <<"lalalalalalalalal\n";
+    try
+    {
+        Intern someRandomIntern;
+        Bureaucrat Buro("hasan",29);
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+        rrf->beSigned(Buro);
+        rrf->execute(Buro);  
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr <<e.what() << std::endl;
+    }
     return 0;
 }

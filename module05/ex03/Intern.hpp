@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataoufik <ataoufik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 18:19:06 by ataoufik          #+#    #+#             */
-/*   Updated: 2024/11/19 08:39:09 by ataoufik         ###   ########.fr       */
+/*   Created: 2024/11/19 08:43:04 by ataoufik          #+#    #+#             */
+/*   Updated: 2024/11/19 09:19:07 by ataoufik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
+#include<iostream>
+#include"AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main()
+class Intern
 {
-    Bureaucrat buro("hasan",4);
-    ShrubberyCreationForm d("home");
-    RobotomyRequestForm f("ayoub");
-    PresidentialPardonForm e("fr");
-    e.beSigned(buro);
-    buro.executeForm(e);
-    // f.execute(buro);
-    // d.execute(buro);
-    // std::cout <<"lalalalalalalalal\n";
-    return 0;
-}
+    public:
+        Intern();
+        ~Intern();
+        AForm *makeForm(std::string nameform,std::string target);
+    
+    
+};
+
+#endif
