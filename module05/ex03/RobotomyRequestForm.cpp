@@ -21,7 +21,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target):AForm(target
 {
 
 }
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):AForm(copy)
 {
     *this = copy;
 }

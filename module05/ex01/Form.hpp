@@ -27,6 +27,7 @@ class Form
     public:
         Form();
         Form(const Form &copy);
+        Form(const std::string &name,int gardsing,int gardexecute);
         Form &operator=(const Form &other);
         ~Form();
         class GradeTooHighException:public std::exception

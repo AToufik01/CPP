@@ -16,6 +16,10 @@ Form::Form() :_Name("unknown"),_GradeSign(0),_GradeExecute(0)
 {
     
 }
+Form::Form(const std::string &name,int gardsing,int gardexecute) :_Name(name),_GradeSign(gardsing),_GradeExecute(gardexecute)
+{
+    
+}
 
 Form::Form(const Form &copy) :_Name(copy._Name),_sign(copy._sign),_GradeSign(copy._GradeSign),_GradeExecute(copy._GradeExecute)
 {
@@ -75,8 +79,8 @@ void Form:: beSigned(Bureaucrat &bure)
 std::ostream &operator<<(std::ostream& str,const Form &ob)
 {
     str << "Name : "<<ob.getName();
-    str<<"Is signed " <<ob.getSign();
-    str<<"Required Grade to Sign: "<<ob.getGradeSign();
-    str<<"Required Grade to Execute: "<<ob.getGradeExecute();
+    str<<" Is signed " <<ob.getSign();
+    str<<" Required Grade to Sign: "<<ob.getGradeSign();
+    str<<" Required Grade to Execute: "<<ob.getGradeExecute();
     return(str);
 }

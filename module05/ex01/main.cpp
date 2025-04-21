@@ -15,21 +15,19 @@
 int main()
 {
     try {
-        Bureaucrat bob("Bob", 149);
-        bob.incrGrade();
-        bob.incrGrade();
+        Bureaucrat bob("Bob", 1);
+        Form form("Cmedical",10,30);
+        form.beSigned(bob);
+        // bob.incrGrade();
+        // bob.incrGrade();
         std::cout << bob <<std::endl;
+        std::cout << form <<std::endl;
     }
-    catch (const Bureaucrat::GradeTooLowException& e)
+    catch (const Form::GradeTooLowException& e)
     {
         std::cerr << e.what() << std::endl;
     }
-    try
-    {
-        Bureaucrat bob("Bob", 1);
-        bob.decrGrade();
-    }
-    catch (const Bureaucrat::GradeTooHighException& e)
+    catch (const Form::GradeTooHighException& e)
     {
         std::cerr << e.what() << std::endl;
     }

@@ -17,14 +17,21 @@
 
 int main()
 {
-    Bureaucrat buro("hasan",4);
-    ShrubberyCreationForm d("home");
-    RobotomyRequestForm f("ayoub");
-    PresidentialPardonForm e("fr");
-    e.beSigned(buro);
-    buro.executeForm(e);
-    // f.execute(buro);
-    // d.execute(buro);
-    // std::cout <<"lalalalalalalalal\n";
+    try {
+
+        Bureaucrat buro("hasan",4);
+        ShrubberyCreationForm d("home");
+        RobotomyRequestForm f("ayoub");
+        PresidentialPardonForm e("fr");
+        d.beSigned(buro);
+        // buro.executeForm(e);
+        // f.execute(buro);
+        d.execute(buro);
+        // std::cout <<"lalalalalalalalal\n";
+    } catch (const AForm::GradeTooLowException& e) {
+        std::cerr << e.what() << std::endl;
+    } catch (const AForm::GradeTooHighException& e) {
+        std::cerr << e.what() << std::endl;
+    }
     return 0;
 }

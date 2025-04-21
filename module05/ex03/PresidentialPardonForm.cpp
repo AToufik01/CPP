@@ -22,7 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target):AForm(
 {
 
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) :AForm(copy)
 {
     *this = copy;
 }
