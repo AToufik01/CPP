@@ -18,8 +18,6 @@
 #include <deque>
 #include <list>
 #include<array>
-#include <algorithm>
-#include <stdexcept>///???
 template <typename T> void easyfind(T conta ,int find)
 {
     bool a = false;
@@ -32,7 +30,7 @@ template <typename T> void easyfind(T conta ,int find)
             break;
         }
     }
-    if(a== false)
+    if(a == false)
         std::cout << "Not found" << std::endl;
 }
 #endif

@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CPP) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
-%.o: %.cpp
+%.o: %.cpp Base.hpp A.cpp B.cpp C.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

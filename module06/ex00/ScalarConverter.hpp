@@ -21,10 +21,16 @@
 class ScalarConverter
 {
     ScalarConverter();
+    ScalarConverter(const ScalarConverter& other);
+    ScalarConverter& operator=(const ScalarConverter& other);
     ~ScalarConverter();
     public:
         static void convert(std::string &str);
 };
 
 bool check_intger(std::string str);
+void   handleInputChar(std::string  &str);
+void handleInputInt(std::string  &str);
+void handleInputDouble(std::string  &str);
+bool checkArgement(std::string  &str);
 #endif

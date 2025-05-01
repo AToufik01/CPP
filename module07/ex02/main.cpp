@@ -13,48 +13,46 @@
 #include <iostream>
 #include"Array.hpp"
 
-#define MAX_VAL 750
-void    f()
-{
-    system("leaks array");
+#define MAX_VAL 10
+
+std::string generateRandomWord(int length) {
+    std::string word;
+    for (int i = 0; i < length; ++i) {
+        char c = 'a' + rand() % 26;
+        word += c;
+    }
+    return word;
 }
+
 int main(int, char**)
 {
-    atexit(f);
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+
+    Array<std::string> numbers(MAX_VAL);
+    std::string* mirror = new std::string[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
-        const int value = rand()%100;
-        numbers[i] = value;
-        mirror[i] = value;
+        std :: string word = generateRandomWord(i+1);
+        numbers[i] = word;
+        mirror[i] = word;
     }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+
+    Array<std::string> tmp = numbers;
+    Array<std::string> test(tmp);
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        if (mirror[i] != numbers[i])
+        if (mirror[i] != test[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
         }
     }
+
     try
     {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
+        numbers[2] = "----------> index 2  <-------------";
+        numbers[MAX_VAL-1] = "---------> index MAX_VAL - 1 <-------------";
     }
     catch(const std::exception& e)
     {
@@ -63,9 +61,9 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+       std::cout <<  numbers[i] <<std::endl;
     }
-    delete [] mirror;//
+    delete [] mirror;
     
     return 0;
 }

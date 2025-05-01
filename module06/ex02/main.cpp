@@ -23,6 +23,9 @@ int main()
     C c;
     Base &w =b1;
     b = generate();
+    std::cout <<" -------- reference -------"<<std::endl;
     identify(&w);
+    std::cout <<" -------- pointer ---------"<<std::endl;
+    identify(b);
     return (0);
 }

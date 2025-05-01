@@ -18,7 +18,6 @@
 class Base
 {
     public:
-        Base();
         virtual ~Base();
 };
 Base * generate(void);

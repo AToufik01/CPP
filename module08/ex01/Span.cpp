@@ -31,7 +31,8 @@ Span &Span::operator=(const Span &other)
 {
     if(this != &other)
     {
-
+        this->N = other.N;
+        this->_data = other._data;
     }
     return (*this);
 }
@@ -47,7 +48,14 @@ void  Span::addNumber(int n)
         throw std::out_of_range("out of range");
     this->_data.push_back(n);
 }
-
+void Span::addNumbers()
+{
+    std::srand(std::time(0)); 
+    for(unsigned int i= 0 ;i<this->N;i++) {
+        int val = rand()%INT_MAX;
+        addNumber(val);
+    }
+}
 int Span::longestSpan()
 {
     if (this->N <2)
@@ -63,11 +71,10 @@ int Span::shortestSpan()
         throw std::logic_error("error");
     std::vector <int >s = this->_data;
     std::sort(s.begin(),s.end());
-    std::vector<int> ::iterator it;
     int shortest = INT_MAX;
-    for (it = s.begin(); it < s.end(); it++)
+    for (std::vector<int> ::iterator it = s.begin(); it < s.end(); it++)
     {
-        if (it + 1< s.end())
+        if (it + 1 < s.end())
             shortest = std::min(shortest,*(it + 1) - *it);
     }
     return (shortest);

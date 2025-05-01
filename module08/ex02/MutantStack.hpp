@@ -19,7 +19,6 @@
 template <class T>class MutantStack:public std::stack<T> 
 {
     public:
-       using std::stack<T>::c;
         // std::stack<T>::iterator it;
         typedef typename std::stack<T>::container_type::iterator iterator;
         iterator begin(){return c.begin();}

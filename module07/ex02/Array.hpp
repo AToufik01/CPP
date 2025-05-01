@@ -22,7 +22,7 @@ class Array
         T *_array;
         unsigned int _size;
     public:
-        Array() {}
+        Array(): _array(NULL),_size(0){ }
         Array(const Array &copy){
             if(copy._size>0)
             {
@@ -45,7 +45,7 @@ class Array
             }
             return (*this);
         }
-        Array(unsigned int n): _array(new T[n]),_size(n){
+        Array(unsigned int n): _array(new T[n]()),_size(n){
         }
         T &operator[](unsigned int index){
             if(index>=this->_size)

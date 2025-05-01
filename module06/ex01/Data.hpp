@@ -23,12 +23,13 @@ class Data
     public:
         Data(std::string name,int id);
         Data();
+        Data(const Data&copy);
+        Data& operator=(const Data&other);
         ~Data();
         std::string getName() const;
-        void    setName(std::string name);
+        void setName(std::string name);
         int getId() const;
-        void    setId(int id);
-        
+        void setId(int id);    
 };
 
 

@@ -16,9 +16,24 @@ Data::Data()
 {
 
 }
+
 Data::Data(std::string name,int id):_name(name),_id(id)
 {
 
+}
+
+Data:: Data(const Data&copy)
+{
+    *this= copy;
+}
+
+Data& Data::operator=(const Data&other)
+{
+    if (this !=&other) {
+        this->_name = other._name;
+        this->_id = other._id;
+    }
+    return *this;
 }
 
 Data::~Data()
